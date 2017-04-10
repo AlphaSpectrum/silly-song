@@ -1,26 +1,80 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Silly_Song" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SILLY SONG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEK-AE-Wn7">
+                                <rect key="frame" x="18.5" y="36" width="283" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="283" id="adf-M9-mu0"/>
+                                    <constraint firstAttribute="height" constant="61" id="qyG-aY-zAh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JC6-6k-kSR">
+                                <rect key="frame" x="61" y="286.5" width="198" height="148.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="Type Your First Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="j8G-kR-Is6">
+                                <rect key="frame" x="85" y="229" width="150" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="GY7-mH-wR9"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="displayLyrics:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Qva-rj-R5A"/>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="1zH-jk-BM9"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99364060163497925" green="0.78558236360549927" blue="0.017232565209269524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="j8G-kR-Is6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="56m-4i-Ww3"/>
+                            <constraint firstItem="j8G-kR-Is6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Yo-7L-dIG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JC6-6k-kSR" secondAttribute="trailing" constant="45" id="BeG-LT-Lbf"/>
+                            <constraint firstItem="j8G-kR-Is6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-0.5" id="InL-8v-Gh1"/>
+                            <constraint firstItem="JC6-6k-kSR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="45" id="J9l-mQ-Aih"/>
+                            <constraint firstItem="rEK-AE-Wn7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="O1G-O3-qyZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JC6-6k-kSR" secondAttribute="bottom" constant="45" id="ON2-dQ-75D"/>
+                            <constraint firstItem="rEK-AE-Wn7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bGH-Xv-0Ae"/>
+                            <constraint firstItem="j8G-kR-Is6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dhN-g3-6PK"/>
+                            <constraint firstItem="JC6-6k-kSR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gpM-KW-ep2"/>
+                            <constraint firstItem="JC6-6k-kSR" firstAttribute="top" secondItem="j8G-kR-Is6" secondAttribute="bottom" constant="36.5" id="yPe-L0-Z04"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fieldName" destination="j8G-kR-Is6" id="g2u-nu-TfN"/>
+                        <outlet property="lyricsView" destination="JC6-6k-kSR" id="rh6-cN-UXm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="136.28185907046478"/>
         </scene>
     </scenes>
 </document>
