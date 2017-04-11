@@ -52,28 +52,46 @@ let bananaFanaTemplate = [
     "<FULL_NAME>"].joined(separator: "\n")
 
     // If the first letter of the name is a consonant, then remove it
+extension Character
+{
+    func unicodeScalarCodePoint() -> UInt32
+    {
+        let characterString = String(self)
+        let scalars = characterString.unicodeScalars
+        return scalars[scalars.startIndex].value
+    }
+}
+
 func shortNameFor(name: String) -> String {
+    let lowercaseName = name.lowercased()
+    let vowelSet = CharacterSet(charactersIn: "aeiouàáâæãåā")
+    let letters = Array(lowercaseName.characters)
+    let firstLetterOfName = letters[0]
+    let firstLetterOfNameInScalar = UnicodeScalar(firstLetterOfName.unicodeScalarCodePoint())!
+    var nameHasVowel: Bool?
+    var shortName: String = lowercaseName
     
-    var lowercaseName = name.lowercased()
-    var startsWithVowel = false
-    let vowelSet: [Character] = ["a","e","i","o","u"]
-    let firstLetter = lowercaseName.characters[lowercaseName.characters.startIndex]
-    
-    for vowel in vowelSet {
-        if firstLetter == vowel {
-            startsWithVowel = true
+    for letter in letters {
+        if vowelSet.contains(UnicodeScalar(letter.unicodeScalarCodePoint())!) {
+            nameHasVowel = true
             break
+        } else {
+            nameHasVowel = false
         }
     }
     
-    if !startsWithVowel {
-        lowercaseName.remove(at: lowercaseName.startIndex)
+    if vowelSet.contains(firstLetterOfNameInScalar) {
+        return shortName
+    } else if !vowelSet.contains(firstLetterOfNameInScalar) && nameHasVowel! {
+        shortName.remove(at: lowercaseName.startIndex)
+    } else {
+        return shortName
     }
     
-    return lowercaseName
+    return shortName
 }
 
-    // Display customzied lyrics
+// Display customzied lyrics
 func lyricsForName(lyricsTemplate: String, firstName: String) -> String {
     
     let lyrics = lyricsTemplate
